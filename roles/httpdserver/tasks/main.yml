@@ -1,0 +1,16 @@
+---
+# httpd server come up
+- name: install httpd
+  package:
+    name: httpd
+    state: present
+
+- name: copy code
+  get_url:
+    src: index.html 
+    dest: "/var/www/html/index.html"
+
+- name: start https
+  service: 
+    name: httpd
+    state: started
